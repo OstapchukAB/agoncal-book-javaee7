@@ -1,22 +1,16 @@
 package org.agoncal.book.javaee7.chapter04;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 7 with Glassfish 4
- *         http://www.apress.com/
- *         http://www.antoniogoncalves.org
- *         --
- */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b"),
         @NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
 })
-public class Book {
+public class Book implements Serializable {
 
   // ======================================
   // =             Attributes             =
